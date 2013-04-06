@@ -20,8 +20,11 @@ block content
             type: "POST",
             url: "/talk",
             data: "message=" + message
-          }).done(function(data){
-            $("#result").empty().append(data);
+          }).done(function(messages){
+            $("#result").empty();
+            messages.forEach(function(message){
+              $("#result").append(element+'<br>');
+            });
             $("#result").fadeIn("slow");
           });
         }
