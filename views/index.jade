@@ -21,6 +21,7 @@ block content
             url: "/talk",
             data: "message=" + message
           }).done(function(messages){
+            console.log(messages);
             $("#result").empty();
             messages.forEach(function(message){
               $("#result").append(element+'<br>');
