@@ -15,7 +15,7 @@ exports.talk = function(req, res){
   var queue = conn.queue('queue2', {}, function() {
     exchange.publish(queue.name, {body: req.body['message']});
     redis.lrange('chat', 0, 9, function(err, messages){
-      res.write(messages);
+      res.json({messages: messages});
       res.end();
     });
   });
