@@ -1,0 +1,11 @@
+{
+  "name": "cgat-emmitter",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.1.0",
+    "jade": "*",
+    "amqp": "0.1.6",
+    "redis": "0.8.2"
+  }
+}
