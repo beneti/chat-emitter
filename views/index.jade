@@ -22,6 +22,7 @@ block content
             data: "message=" + message
           }).done(function(json){
             $("#result").empty();
+            $("#result").append(message+'<br>');
             json.messages.forEach(function(message){
               $("#result").append(message+'<br>');
             });
