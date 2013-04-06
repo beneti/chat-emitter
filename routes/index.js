@@ -1,6 +1,6 @@
 var amqp = require('amqp');
 var url = process.env.CLOUDAMQP_URL || "amqp://localhost";
-var conn = amqp.createConnection({url: url});
+var conn = amqp.createConnection({url: url}, {defaultExchangeName: "amq.topic"});
 
 /*
  * GET home page.
