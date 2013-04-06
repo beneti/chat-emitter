@@ -11,13 +11,15 @@ exports.index = function(req, res){
 };
 
 exports.talk = function(req, res){
-  setTimeout(conn.on('ready', function(){
-    var exchange = conn.exchange('');
-    var queue = conn.queue('queue1', {}, function() {
-      exchange.publish(queue.name, {body: req.body['message']}, function(){
-        res.write('ok');
-        res.end();
+  setTimeout(function(){
+    conn.on('ready', function(){
+      var exchange = conn.exchange('');
+      var queue = conn.queue('queue1', {}, function() {
+        exchange.publish(queue.name, {body: req.body['message']}, function(){
+          res.write('ok');
+          res.end();
+        });
       });
-    });
-  }), 5000);
+    })
+  }, 5000);
 };
