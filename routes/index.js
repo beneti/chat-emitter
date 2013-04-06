@@ -12,8 +12,9 @@ exports.index = function(req, res){
 };
 
 exports.talk = function(req, res){
-  var exchange = conn.exchange('amq.topic');
+  var exchange = conn.exchange('');
   var queue = conn.queue('queue1', {}, function() {
+    exchange.publish(queue.name, {body: req.body['message']});
     exchange.publish(queue.name, {body: req.body['message']}, function(){
       res.write('ok');
       res.end();
