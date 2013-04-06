@@ -1,16 +1,14 @@
 var amqp = require('amqp');
 var url = process.env.CLOUDAMQP_URL || "amqp://localhost";
-var conn = amqp.createConnection({url: url}, {defaultExchangeName: "amq.topic"});
+var conn = amqp.createConnection({url: url});
+conn.on('ready', function(){console.log('Connected')});
 
 /*
  * GET home page.
  */
 
 exports.index = function(req, res){
-  conn.on('ready', function(){
-    console.log('Connected')
-    res.render('index', { title: 'Express' });
-  });
+  res.render('index', { title: 'Express' });
 };
 
 exports.talk = function(req, res){
