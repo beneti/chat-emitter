@@ -1,7 +1,7 @@
 var amqp = require('amqp');
 var url = process.env.CLOUDAMQP_URL || "amqp://localhost";
 var conn = amqp.createConnection({url: url});
-conn.on('ready', function(){console.log('Connected')});
+conn.on('ready', function(){console.log("connected to " + conn.serverProperties.product)});
 
 /*
  * GET home page.
