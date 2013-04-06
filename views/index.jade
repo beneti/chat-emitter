@@ -23,7 +23,7 @@ block content
           }).done(function(json){
             $("#result").empty();
             json.messages.forEach(function(message){
-              $("#result").append(element+'<br>');
+              $("#result").append(message+'<br>');
             });
             $("#result").fadeIn("slow");
           });
